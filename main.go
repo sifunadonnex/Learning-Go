@@ -1,6 +1,18 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"math/rand"
+	"sync"
+	"time"
+)
+
+// main function serves as the entry point of the program
+// It demonstrates various Go features including variables, strings, arithmetic operations,
+// control flow, arrays, slices, maps, runes, and pointers.
+
+var wg sync.WaitGroup
+var dbData = []string{"data1", "data2", "data3"}
 
 func main() {
 	fmt.Println("Hello, World!")
@@ -19,6 +31,23 @@ func main() {
 	mapsExample()
 	runesExample()
 	pointerExample()
+
+	t0 := time.Now()
+	for i := 0; i < len(dbData); i++ {
+		wg.Add(1)
+		go dbCall(i)
+	}
+	wg.Wait()
+	fmt.Println("All DB calls completed in:", time.Since(t0))
+	fmt.Println("Program completed successfully.")
+
+	// Example of a goroutine
+	go func() {
+		for i := 0; i < 5; i++ {
+			fmt.Println("Goroutine iteration:", i)
+			time.Sleep(100 * time.Millisecond)
+		}
+	}()
 }
 
 func variableExample() {
@@ -149,4 +178,11 @@ func pointerExample() {
 	person.Greet()
 	person.HaveBirthday()
 	fmt.Println("Pointer example completed.")
+}
+
+func dbCall(i int) {
+	var delay float32 = rand.Float32() * 2.0
+	time.Sleep(time.Duration(delay * float32(time.Second)))
+	fmt.Printf("the result of db call %d is %s\n", i, dbData[i%len(dbData)])
+	wg.Done()
 }
