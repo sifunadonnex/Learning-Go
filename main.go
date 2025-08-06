@@ -17,6 +17,7 @@ func main() {
 	controlFlowExample()
 	arraysandSlicesExample()
 	mapsExample()
+	runesExample()
 }
 
 func variableExample() {
@@ -124,4 +125,17 @@ func runesExample() {
 		fmt.Printf("Character %d: %c\n", i, r)
 	}
 	fmt.Println("Runes example completed.")
+}
+
+type Person struct {
+	Name string
+	Age  int
+}
+
+func (p Person) Greet() {
+	fmt.Printf("Hello, my name is %s and I am %d years old.\n", p.Name, p.Age)
+}
+func (p *Person) HaveBirthday() {
+	p.Age++
+	fmt.Printf("Happy birthday %s! You are now %d.\n", p.Name, p.Age)
 }
