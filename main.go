@@ -9,13 +9,18 @@ func main() {
 	fmt.Println("Goodbye!")
 	variableExample()
 	stringManipulation()
+	sum, diff, prod, quot := arithmeticOperations(10, 5)
+	fmt.Println("Sum:", sum)
+	fmt.Println("Difference:", diff)
+	fmt.Println("Product:", prod)
+	fmt.Println("Quotient:", quot)
 }
 
 func variableExample() {
 	var message string = "This is a variable example."
 	var number int = 42
 	var isActive bool = true
-	var pi float64 = 3.14
+	const pi float64 = 3.14
 
 	fmt.Println(message)
 	fmt.Println("Number:", number)
@@ -31,4 +36,12 @@ func stringManipulation() {
 	fmt.Println("Substring:", str[7:9])
 	fmt.Println("String in uppercase:", "HELLO, GO!")
 	fmt.Println("String manipulation completed.")
+}
+
+func arithmeticOperations(a int, b int) (int, int, int, float64) {
+	sum := a + b
+	diff := a - b
+	prod := a * b
+	quot := float64(a) / float64(b)
+	return sum, diff, prod, quot
 }
