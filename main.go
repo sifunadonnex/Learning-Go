@@ -142,9 +142,11 @@ func (p *Person) HaveBirthday() {
 }
 
 func pointerExample() {
-	p := Person{Name: "Alice", Age: 30}
-	p.Greet()
-	p.HaveBirthday()
-	p.Greet() // Check age after birthday
+	var p *int32 = new(int32)
+	*p = 42
+	fmt.Println("Pointer value:", *p)
+	var person Person = Person{Name: "Alice", Age: 30}
+	person.Greet()
+	person.HaveBirthday()
 	fmt.Println("Pointer example completed.")
 }
