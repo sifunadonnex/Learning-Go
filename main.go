@@ -1,12 +1,14 @@
 package main
+
 import "fmt"
 
-func main(){
+func main() {
 	fmt.Println("Hello, World!")
 	fmt.Println("This is a simple Go program.")
 	fmt.Println("It prints messages to the console.")
 	fmt.Println("Goodbye!")
 	variableExample()
+	stringManipulation()
 }
 
 func variableExample() {
@@ -20,4 +22,13 @@ func variableExample() {
 	fmt.Println("Is Active:", isActive)
 	fmt.Println("Value of Pi:", pi)
 	fmt.Println("Variable example completed.")
+}
+
+func stringManipulation() {
+	var str string = "Hello, Go!" + " Welcome to string manipulation."
+	fmt.Println(str)
+	fmt.Println("Length of string:", len(str))
+	fmt.Println("Substring:", str[7:9])
+	fmt.Println("String in uppercase:", "HELLO, GO!")
+	fmt.Println("String manipulation completed.")
 }
