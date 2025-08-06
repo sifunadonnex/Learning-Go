@@ -114,3 +114,14 @@ func mapsExample() {
 	fmt.Println("Map after deletion:", m)
 	fmt.Println("Maps example completed.")
 }
+
+func runesExample() {
+	var mystring string = "Hello, 世界"
+	fmt.Println("String:", mystring)
+	fmt.Println("Length of string in bytes:", len(mystring))
+	fmt.Println("Length of string in runes:", len([]rune(mystring)))
+	for i, r := range mystring {
+		fmt.Printf("Character %d: %c\n", i, r)
+	}
+	fmt.Println("Runes example completed.")
+}
