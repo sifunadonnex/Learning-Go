@@ -18,6 +18,7 @@ func main() {
 	arraysandSlicesExample()
 	mapsExample()
 	runesExample()
+	pointerExample()
 }
 
 func variableExample() {
@@ -138,4 +139,12 @@ func (p Person) Greet() {
 func (p *Person) HaveBirthday() {
 	p.Age++
 	fmt.Printf("Happy birthday %s! You are now %d.\n", p.Name, p.Age)
+}
+
+func pointerExample() {
+	p := Person{Name: "Alice", Age: 30}
+	p.Greet()
+	p.HaveBirthday()
+	p.Greet() // Check age after birthday
+	fmt.Println("Pointer example completed.")
 }
