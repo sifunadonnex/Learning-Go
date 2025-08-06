@@ -15,6 +15,8 @@ func main() {
 	fmt.Println("Product:", prod)
 	fmt.Println("Quotient:", quot)
 	controlFlowExample()
+	arraysandSlicesExample()
+	mapsExample()
 }
 
 func variableExample() {
@@ -85,4 +87,30 @@ func controlFlowExample() {
 		fmt.Println("No message received")
 	}
 	fmt.Println("Control flow example completed.")
+}
+
+func arraysandSlicesExample() {
+	// Example of arrays
+	var arr [5]int = [5]int{1, 2, 3, 4, 5}
+	fmt.Println("Array:", arr)
+	fmt.Println("Length of array:", len(arr))
+	fmt.Println("First element:", arr[0])
+
+	// Example of slices
+	var slice []int = []int{1, 2, 3, 4, 5}
+	fmt.Println("Slice:", slice)
+	fmt.Println("Length of slice:", len(slice))
+	fmt.Println("First element:", slice[0])
+	fmt.Println("Last element:", slice[len(slice)-1])
+	fmt.Println("Array and slice example completed.")
+}
+
+func mapsExample() {
+	// Example of maps
+	var m map[string]int = map[string]int{"one": 1, "two": 2, "three": 3}
+	fmt.Println("Map:", m)
+	fmt.Println("Value for key 'two':", m["two"])
+	delete(m, "two")
+	fmt.Println("Map after deletion:", m)
+	fmt.Println("Maps example completed.")
 }
