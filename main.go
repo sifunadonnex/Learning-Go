@@ -48,6 +48,7 @@ func main() {
 			time.Sleep(100 * time.Millisecond)
 		}
 	}()
+	channelExample()
 }
 
 func variableExample() {
@@ -185,4 +186,20 @@ func dbCall(i int) {
 	time.Sleep(time.Duration(delay * float32(time.Second)))
 	fmt.Printf("the result of db call %d is %s\n", i, dbData[i%len(dbData)])
 	wg.Done()
+}
+
+func channelExample() {
+	ch := make(chan string)
+
+	go func() {
+		ch <- "Hello from goroutine"
+	}()
+
+	select {
+	case msg := <-ch:
+		fmt.Println(msg)
+	default:
+		fmt.Println("No message received")
+	}
+	fmt.Println("Channel example completed.")
 }
